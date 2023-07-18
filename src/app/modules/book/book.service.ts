@@ -1,15 +1,22 @@
+import { SortOrder } from 'mongoose';
 import ApiError from '../../../errors/ApiError';
-import { IGenericResponse } from '../../../interfaces/common';
+import { paginationHelpers } from '../../../helpers/paginationHelper';
+import {
+  IGenericResponse,
+  IPaginationOptions,
+} from '../../../interfaces/common';
 import { bookSearchableFields } from './book.constant';
 import { IBook, IBookFilters } from './book.interface';
 import Book from './book.model';
 
 const getAllBooks = async (
   filters: IBookFilters,
+  paginationOptions: IPaginationOptions,
 ): Promise<IGenericResponse<IBook[]>> => {
   const { searchTerm, ...filtersData } = filters;
-  console.log('🚀 ~ file: book.service.ts:10 ~ filters:', filters);
 
+  const { page, limit, skip, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
   const andConditions = [];
   // Search needs $or for searching in specified fields
   if (searchTerm) {
@@ -34,17 +41,30 @@ const getAllBooks = async (
   const whereConditions =
     andConditions.length > 0 ? { $and: andConditions } : {};
 
-  const books = await Book.find(whereConditions);
+  const sortConditions: { [key: string]: SortOrder } = {};
+
+  if (sortBy && sortOrder) {
+    sortConditions[sortBy] = sortOrder;
+  }
+  const result = await Book.find(whereConditions)
+    .sort(sortConditions)
+    .skip(skip)
+    .limit(limit);
+  const total = await Book.countDocuments(whereConditions);
+
   return {
-    data: books,
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
   };
 };
 
-const createNewBook = async (book: IBook): Promise<IGenericResponse<IBook>> => {
+const createNewBook = async (book: IBook): Promise<IBook> => {
   const createdBook = await Book.create(book);
-  return {
-    data: createdBook,
-  };
+  return createdBook;
 };
 
 const updateBook = async (id: string, payload: Partial<IBook>) => {

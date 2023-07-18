@@ -8,11 +8,8 @@ import { bookFilterableFields, bookSearchableFields } from './book.constant';
 
 const getAllBooks = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, bookFilterableFields);
-  console.log(
-    '🚀 ~ file: book.controller.ts:11 ~ getAllBooks ~ filters:',
-    filters,
-  );
-  const allBooks = await bookService.getAllBooks(filters);
+const paginationOptions = pick(req.query, paginationFields);
+const allBooks = await bookService.getAllBooks(filters, paginationOptions);
   sendResponse<IBook[]>(res, {
     statusCode: 200,
     success: true,
