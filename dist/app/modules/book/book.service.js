@@ -24,11 +24,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const ApiError_1 = __importDefault(require("../../../errors/ApiError"));
+const paginationHelper_1 = require("../../../helpers/paginationHelper");
 const book_constant_1 = require("./book.constant");
 const book_model_1 = __importDefault(require("./book.model"));
-const getAllBooks = (filters) => __awaiter(void 0, void 0, void 0, function* () {
+const getAllBooks = (filters, paginationOptions) => __awaiter(void 0, void 0, void 0, function* () {
     const { searchTerm } = filters, filtersData = __rest(filters, ["searchTerm"]);
-    console.log('🚀 ~ file: book.service.ts:10 ~ filters:', filters);
+    const { page, limit, skip, sortBy, sortOrder } = paginationHelper_1.paginationHelpers.calculatePagination(paginationOptions);
     const andConditions = [];
     // Search needs $or for searching in specified fields
     if (searchTerm) {
@@ -49,16 +50,28 @@ const getAllBooks = (filters) => __awaiter(void 0, void 0, void 0, function* () 
         });
     }
     const whereConditions = andConditions.length > 0 ? { $and: andConditions } : {};
-    const books = yield book_model_1.default.find(whereConditions);
+    const sortConditions = {};
+    if (sortBy && sortOrder) {
+        sortConditions[sortBy] = sortOrder;
+    }
+    console.log({ sortConditions });
+    const result = yield book_model_1.default.find(whereConditions)
+        .sort(sortConditions)
+        .skip(skip)
+        .limit(limit);
+    const total = yield book_model_1.default.countDocuments(whereConditions);
     return {
-        data: books,
+        meta: {
+            page,
+            limit,
+            total,
+        },
+        data: result,
     };
 });
 const createNewBook = (book) => __awaiter(void 0, void 0, void 0, function* () {
     const createdBook = yield book_model_1.default.create(book);
-    return {
-        data: createdBook,
-    };
+    return createdBook;
 });
 const updateBook = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const isExist = yield book_model_1.default.findOne({ _id: id });

@@ -46,6 +46,8 @@ const getAllBooks = async (
   if (sortBy && sortOrder) {
     sortConditions[sortBy] = sortOrder;
   }
+
+  console.log({ sortConditions });
   const result = await Book.find(whereConditions)
     .sort(sortConditions)
     .skip(skip)

@@ -6,6 +6,8 @@ const bookSchema = new mongoose_1.Schema({
     author: [String],
     genre: String,
     publishedAt: Date,
+}, {
+    timestamps: true,
 });
 const Book = (0, mongoose_1.model)('Book', bookSchema);
 exports.default = Book;

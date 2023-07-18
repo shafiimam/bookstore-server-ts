@@ -17,14 +17,16 @@ const book_service_1 = __importDefault(require("./book.service"));
 const sendResponse_1 = __importDefault(require("../../../shared/sendResponse"));
 const pick_1 = __importDefault(require("../../../shared/pick"));
 const book_constant_1 = require("./book.constant");
+const pagination_1 = require("../../../constants/pagination");
 const getAllBooks = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const filters = (0, pick_1.default)(req.query, book_constant_1.bookFilterableFields);
-    console.log('🚀 ~ file: book.controller.ts:11 ~ getAllBooks ~ filters:', filters);
-    const allBooks = yield book_service_1.default.getAllBooks(filters);
+    const paginationOptions = (0, pick_1.default)(req.query, pagination_1.paginationFields);
+    const allBooks = yield book_service_1.default.getAllBooks(filters, paginationOptions);
     (0, sendResponse_1.default)(res, {
         statusCode: 200,
         success: true,
         data: allBooks.data,
+        meta: allBooks.meta,
         message: 'books fetched successfully',
     });
 }));
@@ -34,7 +36,7 @@ const createBook = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
     (0, sendResponse_1.default)(res, {
         statusCode: 201,
         success: true,
-        data: createdBook.data,
+        data: createdBook,
         message: 'book created successfully',
     });
 }));
