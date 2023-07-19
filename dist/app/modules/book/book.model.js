@@ -7,6 +7,10 @@ const bookSchema = new mongoose_1.Schema({
     genre: String,
     publishedAt: Date,
     coverImage: String,
+    reviews: {
+        type: [String],
+        default: [],
+    },
 }, {
     timestamps: true,
 });
