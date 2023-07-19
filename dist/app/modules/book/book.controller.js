@@ -73,10 +73,33 @@ const createReview = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, v
         message: 'review created successfully',
     });
 }));
+const deleteBook = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const deletedBook = yield book_service_1.default.deleteBook(id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: 200,
+        success: true,
+        data: deletedBook,
+        message: 'book deleted successfully',
+    });
+}));
+const editBook = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const book = req.body;
+    const updatedBook = yield book_service_1.default.editBook(id, book);
+    (0, sendResponse_1.default)(res, {
+        statusCode: 200,
+        success: true,
+        data: updatedBook,
+        message: 'book updated successfully',
+    });
+}));
 exports.default = {
     getAllBooks,
     createBook,
     updateBook,
     getBookById,
     createReview,
+    deleteBook,
+    editBook,
 };
