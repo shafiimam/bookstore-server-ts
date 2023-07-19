@@ -7,6 +7,7 @@ const bookSchema = new Schema<IBook>(
     author: [String],
     genre: String,
     publishedAt: Date,
+    coverImage: String,
   },
   {
     timestamps: true,

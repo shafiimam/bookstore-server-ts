@@ -1,0 +1,142 @@
+[
+  {
+    "title": "To Kill a Mockingbird",
+    "author": ["Harper Lee"],
+    "genre": "Fiction",
+    "publishedAt": "1960-07-11",
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BNmVmYzcwNzMtMWM1NS00MWIyLThlMDEtYzUwZDgzODE1NmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "title": "1984",
+    "author": ["George Orwell"],
+    "genre": "Science Fiction",
+    "publishedAt": "1949-06-08",
+    "coverImage": "https://m.media-amazon.com/images/I/519zR2oIlmL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": ["Jane Austen"],
+    "genre": "Romance",
+    "publishedAt": "1813-01-28",
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BMTA1NDQ3NTcyOTNeQTJeQWpwZ15BbWU3MDA0MzA4MzE@._V1_.jpg"
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": ["F. Scott Fitzgerald"],
+    "genre": "Fiction",
+    "publishedAt": "1925-04-10",
+    "coverImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg"
+  },
+  {
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "author": ["J.K. Rowling"],
+    "genre": "Fantasy",
+    "publishedAt": "1997-06-26",
+    "coverImage": "https://images.moviesanywhere.com/143cdb987186a1c8f94d4f18de211216/fdea56fa-2703-47c1-8da8-70fc5382e1ea.jpg"
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "author": ["J.D. Salinger"],
+    "genre": "Fiction",
+    "publishedAt": "1951-07-16",
+    "coverImage": "https://i0.wp.com/www.adorebooks.in/wp-content/uploads/2022/02/The-Catcher-in-the-Rye.jpg?fit=1080%2C1080&ssl=1"
+  },
+  {
+    "title": "To the Lighthouse",
+    "author": ["Virginia Woolf"],
+    "genre": "Fiction",
+    "publishedAt": "1927-05-05",
+    "coverImage": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781847496577.jpg"
+  },
+  {
+    "title": "Moby-Dick",
+    "author": ["Herman Melville"],
+    "genre": "Fiction",
+    "publishedAt": "1851-10-18",
+    "coverImage": "https://m.media-amazon.com/images/I/81R91ODA9DL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "title": "The Hobbit",
+    "author": ["J.R.R. Tolkien"],
+    "genre": "Fantasy",
+    "publishedAt": "1937-09-21",
+    "coverImage": "https://www.pluggedin.com/wp-content/uploads/2020/01/hobbit-cover.jpg"
+  },
+  {
+    "title": "Brave New World",
+    "author": ["Aldous Huxley"],
+    "genre": "Science Fiction",
+    "publishedAt": "1932-02-11",
+    "coverImage": "https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg"
+  },
+  {
+    "title": "The Lord of the Rings",
+    "author": ["J.R.R. Tolkien"],
+    "genre": "Fantasy",
+    "publishedAt": "1954-07-29",
+    "coverImage": "https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF894,1000_QL80_.jpg"
+  },
+  {
+    "title": "Jane Eyre",
+    "author": ["Charlotte Brontë"],
+    "genre": "Gothic Fiction",
+    "publishedAt": "1847-10-16",
+    "coverImage": "https://m.media-amazon.com/images/I/91zU70Aw9IS._AC_UF894,1000_QL80_.jpg"
+  },
+  {
+    "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+    "author": ["C.S. Lewis"],
+    "genre": "Fantasy",
+    "publishedAt": "1950-10-16",
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BN2ZmZDMzMmYtNzgzYy00OTBiLWI4ZTEtNWYzZmExODhkYmJlXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_.jpg"
+  },
+  {
+    "title": "Animal Farm",
+    "author": ["George Orwell"],
+    "genre": "Satire",
+    "publishedAt": "1945-08-17",
+    "coverImage": "https://www.barringtonstoke.co.uk/wp-content/uploads/2020/12/9781781129692.jpg"
+  },
+  {
+    "title": "The Little Prince",
+    "author": ["Antoine de Saint-Exupéry"],
+    "genre": "Children's Literature",
+    "publishedAt": "1943-04-06",
+    "coverImage": "https://m.media-amazon.com/images/I/719njS5bQhL._AC_UF894,1000_QL80_.jpg"
+  },
+  {
+    "title": "The Odyssey",
+    "author": ["Homer"],
+    "genre": "Epic Poetry",
+    "publishedAt": "8th century BCE",
+    "coverImage": "https://m.media-amazon.com/images/M/MV5BYTI4NWZmZmQtNDY3OC00ZWQ3LWE4NjgtOGY0N2JiZTQ5YTNhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "title": "Wuthering Heights",
+    "author": ["Emily Brontë"],
+    "genre": "Gothic Fiction",
+    "publishedAt": "1847-12-19",
+    "coverImage": "https://flxt.tmsimg.com/assets/p2934_p_v8_af.jpg"
+  },
+  {
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "author": ["Douglas Adams"],
+    "genre": "Science Fiction",
+    "publishedAt": "1979-10-12",
+    "coverImage": "https://api.time.com/wp-content/uploads/2014/10/hitchhiker-s-guide-douglas-adams-657242_451_700.jpg"
+  },
+  {
+    "title": "The Picture of Dorian Gray",
+    "author": ["Oscar Wilde"],
+    "genre": "Gothic Fiction",
+    "publishedAt": "1890-07-01",
+    "coverImage": "https://mpd-biblio-covers.imgix.net/9781466805064.jpg"
+  },
+  {
+    "title": "Crime and Punishment",
+    "author": ["Fyodor Dostoevsky"],
+    "genre": "Psychological Fiction",
+    "publishedAt": "1866-01-01",
+    "coverImage": "https://m.media-amazon.com/images/I/81EcXiV-9WL._AC_UF1000,1000_QL80_.jpg"
+  }
+]

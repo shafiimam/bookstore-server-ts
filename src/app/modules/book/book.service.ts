@@ -47,7 +47,6 @@ const getAllBooks = async (
     sortConditions[sortBy] = sortOrder;
   }
 
-  console.log({ sortConditions });
   const result = await Book.find(whereConditions)
     .sort(sortConditions)
     .skip(skip)
@@ -81,8 +80,17 @@ const updateBook = async (id: string, payload: Partial<IBook>) => {
   return result;
 };
 
+const getBookById = async (id: string): Promise<IBook> => {
+  const isExist = await Book.findOne({ _id: id });
+  if (!isExist) {
+    throw new ApiError(404, 'Book not found');
+  }
+  return isExist;
+};
+
 export default {
   getAllBooks,
   createNewBook,
   updateBook,
+  getBookById,
 };
