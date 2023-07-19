@@ -89,9 +89,24 @@ const getBookById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     }
     return isExist;
 });
+const createReview = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const isExist = yield book_model_1.default.findOne({ _id: id });
+    if (!isExist) {
+        throw new ApiError_1.default(404, 'Book not found');
+    }
+    const result = yield book_model_1.default.findByIdAndUpdate(id, {
+        $push: {
+            reviews: payload,
+        },
+    }, {
+        new: true,
+    });
+    return result;
+});
 exports.default = {
     getAllBooks,
     createNewBook,
     updateBook,
     getBookById,
+    createReview,
 };

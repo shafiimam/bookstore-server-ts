@@ -55,9 +55,22 @@ const getBookById = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const createReview = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { review } = req.body;
+  const createdReview = await bookService.createReview(id, review);
+  sendResponse<IBook>(res, {
+    statusCode: 201,
+    success: true,
+    data: createdReview,
+    message: 'review created successfully',
+  });
+});
+
 export default {
   getAllBooks,
   createBook,
   updateBook,
   getBookById,
+  createReview,
 };

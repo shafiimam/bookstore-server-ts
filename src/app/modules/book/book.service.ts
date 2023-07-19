@@ -88,9 +88,29 @@ const getBookById = async (id: string): Promise<IBook> => {
   return isExist;
 };
 
+const createReview = async (id: string, payload: string) => {
+  const isExist = await Book.findOne({ _id: id });
+  if (!isExist) {
+    throw new ApiError(404, 'Book not found');
+  }
+  const result = await Book.findByIdAndUpdate(
+    id,
+    {
+      $push: {
+        reviews: payload,
+      },
+    },
+    {
+      new: true,
+    },
+  );
+  return result;
+};
+
 export default {
   getAllBooks,
   createNewBook,
   updateBook,
   getBookById,
+  createReview,
 };

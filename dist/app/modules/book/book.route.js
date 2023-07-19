@@ -10,4 +10,5 @@ bookRouter.get('/', book_controller_1.default.getAllBooks);
 bookRouter.get('/:id', book_controller_1.default.getBookById);
 bookRouter.put('/:id', book_controller_1.default.updateBook);
 bookRouter.post('/', book_controller_1.default.createBook);
+bookRouter.post('/review/:id', book_controller_1.default.createReview);
 exports.default = bookRouter;

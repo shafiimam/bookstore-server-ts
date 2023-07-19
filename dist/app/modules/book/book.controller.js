@@ -62,9 +62,21 @@ const getBookById = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, vo
         message: 'book fetched successfully',
     });
 }));
+const createReview = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const { review } = req.body;
+    const createdReview = yield book_service_1.default.createReview(id, review);
+    (0, sendResponse_1.default)(res, {
+        statusCode: 201,
+        success: true,
+        data: createdReview,
+        message: 'review created successfully',
+    });
+}));
 exports.default = {
     getAllBooks,
     createBook,
     updateBook,
     getBookById,
+    createReview,
 };
