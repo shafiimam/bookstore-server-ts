@@ -106,6 +106,25 @@ const createReview = async (id: string, payload: string) => {
   );
   return result;
 };
+const deleteBook = async (id: string) => {
+  const isExist = await Book.findOne({ _id: id });
+  if (!isExist) {
+    throw new ApiError(404, 'Book not found');
+  }
+  const result = await Book.findByIdAndDelete(id);
+  return result;
+};
+
+const editBook = async (id: string, payload: Partial<IBook>) => {
+  const isExist = await Book.findOne({ _id: id });
+  if (!isExist) {
+    throw new ApiError(404, 'Book not found');
+  }
+  const result = await Book.findByIdAndUpdate(id, payload, {
+    new: true,
+  });
+  return result;
+};
 
 export default {
   getAllBooks,
@@ -113,4 +132,6 @@ export default {
   updateBook,
   getBookById,
   createReview,
+  deleteBook,
+  editBook,
 };

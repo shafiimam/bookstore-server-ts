@@ -67,10 +67,35 @@ const createReview = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const deleteBook = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const deletedBook = await bookService.deleteBook(id);
+  sendResponse<IBook>(res, {
+    statusCode: 200,
+    success: true,
+    data: deletedBook,
+    message: 'book deleted successfully',
+  });
+});
+
+const editBook = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const book = req.body;
+  const updatedBook = await bookService.editBook(id, book);
+  sendResponse<IBook>(res, {
+    statusCode: 200,
+    success: true,
+    data: updatedBook,
+    message: 'book updated successfully',
+  });
+});
+
 export default {
   getAllBooks,
   createBook,
   updateBook,
   getBookById,
   createReview,
+  deleteBook,
+  editBook,
 };
