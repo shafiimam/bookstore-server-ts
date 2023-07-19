@@ -6,6 +6,7 @@ const bookSchema = new mongoose_1.Schema({
     author: [String],
     genre: String,
     publishedAt: Date,
+    coverImage: String,
 }, {
     timestamps: true,
 });

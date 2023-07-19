@@ -54,7 +54,6 @@ const getAllBooks = (filters, paginationOptions) => __awaiter(void 0, void 0, vo
     if (sortBy && sortOrder) {
         sortConditions[sortBy] = sortOrder;
     }
-    console.log({ sortConditions });
     const result = yield book_model_1.default.find(whereConditions)
         .sort(sortConditions)
         .skip(skip)
@@ -83,8 +82,16 @@ const updateBook = (id, payload) => __awaiter(void 0, void 0, void 0, function* 
     });
     return result;
 });
+const getBookById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const isExist = yield book_model_1.default.findOne({ _id: id });
+    if (!isExist) {
+        throw new ApiError_1.default(404, 'Book not found');
+    }
+    return isExist;
+});
 exports.default = {
     getAllBooks,
     createNewBook,
     updateBook,
+    getBookById,
 };
